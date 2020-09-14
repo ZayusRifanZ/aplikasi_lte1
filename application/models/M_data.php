@@ -1,5 +1,5 @@
 <?php 
- 
+defined('BASEPATH') or exit('No direct script access allowed');
 class M_data extends CI_Model
 {
 	function ambil_data()
@@ -8,11 +8,20 @@ class M_data extends CI_Model
 		$query = $this->db->get('tb_pelaksana');
 		return $query->result_array();
 	}
-	
-}
-	function ambil_data()
+
+	function joindata() 
 	{
-        // return $this->db->get('tb_pemeriksa');
-		$query = $this->db->get('tb_pemeriksa');
-		return $query->result_array();
+		$this->db->select("tb_pelaksana.id_gardu, tb_pelaksana.tanggal, tb_pelaksana.penyulang, tb_pelaksana.kapasitas, tb_pelaksana.lokasi,
+		tb_trafo.tahunpembuatan, tb_trafo.merk");
+		$this->db->from("tb_pelaksana");
+		$this->db->join("tb_trafo", "tb_trafo.id_gardu = tb_pelaksana.id_gardu");
+
+		// $queryJoin = "SELECT `tb_pelaksana`.`id_gardu`, `tb_pelaksana`.`tanggal`, `tb_pelaksana`.`penyulang`, `tb_pelaksana`.`kapasitas`, `tb_pelaksana`.`lokasi`, `tb_trafo`.`tahunpembuatan`, `tb_trafo`.`merk`
+		// 			FROM `tb_pelaksana`
+		// 			JOIN `tb_trafo`
+		// 			ON `tb_trafo`.`id_gardu` = `tb_pelaksana`.`id_gardu`";
+		// $join = $this->db->query($queryJoin)->result_array();
+		// return $join;
+		return $this->db->get()->result_array();
 	}
+}
