@@ -29,7 +29,7 @@ Aplikasi Teknik Terpadu
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="<?= base_url("assets/template/") ?>plugins/jquery/jquery.min.js"></script>
+<!-- <script src="<?= base_url("assets/template/") ?>plugins/jquery/jquery.min.js"></script> -->
 <!-- Bootstrap 4 -->
 <script src="<?= base_url("assets/template/") ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
